@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* width entspricht der gesamtweite inkl. border */
+}
+
+html {
+	font-family: 'Roboto', system-ui, sans-serif;
+	font-size: 46px;
+	line-height: 1.5;
+	hyphens: none;
+
+	min-height: 100%;
+
+	background-image: url(images/pbinvertpmobile.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-x: center;
+	background-position-y: bottom;
+}
+
+html.nobg { 
+	background-image: none; 
+}
+
+h3 {
+	padding-top: 2em; 
+}
+
+p {
+	padding-bottom: 1em;
+}
+
+ul li {
+	list-style: none;
+}
+
+ol {
+	padding-left: 1em;
+	padding-bottom: 1em;
+}
+
+.grid {
+	width: 95%;
+	margin: 1em auto; /*Abstand oben und seitlich  */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 Spalten, teilen sich durch fr gleichmäßig auf*/
+	grid-auto-rows: minmax(2em, auto); /* Mindesthöhe der row ist 150 */
+	grid-gap: 1em;
+}
+
+.grid > * { /* Direkter-Nachfahre-Selektor:; Wählt die Elemente aus, die im grid liegen */
+	outline: 0px solid blue; /* Hilfsgitter bei 1px */
+	grid-column-end: span 3;
+}
+
+/* sonderfall für die 3 nav elemente  */
+.grid > :is(:nth-child(1), :nth-child(2), :nth-child(3)) {
+	outline: 0px solid green;
+	grid-column-end: span 1;
+}
+
+#navi a {
+	color: black;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+#navi a:hover { /*Wenn man über das a-Element hovert*/
+	color: #df005e;
+}
+
+#open {
+	font-weight: 700;
+	text-decoration-line: underline;
+	text-decoration-thickness: 0.35em;
+	color: #df005e;
+}
+
+.container {
+	position: relative;
+}
+
+.image {
+	display: block;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: #df005e;
+}
+
+.container:hover .overlay {
+	opacity: 0.95;
+}
+
+.text {
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+iframe, embed {
+	padding-bottom: 2em;
+}
+
+button {
+	font-size: 40px;
+	padding: 0.4em 0.4em; 
+	font-weight: 700;
+	color: white;
+	background: black;
+	border: none;
+}
+
+button:hover {
+	background-color: #df005e;
+	position: relative;
+}
+
+button:hover:after {
+	content: url(images/clipboard.svg); /* no need for qoutes */
+	display: block;
+	position: absolute;
+	left: 14em; /* change this value to one that suits you */
+	top: 0.5em; /* change this value to one that suits you */
+}
+
+.download {
+	padding: 0.4em 0.4em; 
+	font-weight: 700;
+	color: white;
+	background: black;
+	border: none;
+	text-decoration: none;
+}
+
+.download:hover {
+	background-color: #df005e;
+	position: relative;
+}
+
+.download:hover:after {
+	content: url(images/download.svg); /* no need for qoutes */
+	display: block;
+	position: absolute;
+	left: 6em; /* change this value to one that suits you */
+	top: 0.5em; /* change this value to one that suits you */
+}
+
+#orange h1, #orange h4 {
+	color: #f37325;
+}
+
+#beige h1, #beige h4 {
+	color: #ca9378;
+}
+
+#blue h1, #blue h4 {
+	color: #1a4471;
+}
+
+#pink h1, #pink h4 {
+	color: #df005e;
+}
+
+@media (min-width: 1000px) {
+	html {
+		font-size: 18px;
+		background-image: url(images/pbinvertp.png);
+	}
+
+	.grid {
+		width: 80%;
+		margin: 2em auto; /* Abstand oben und seitlich */
+		grid-auto-rows: minmax(4em, auto); /* Mindesthöhe der row ist 150 */
+	}
+
+	.grid > * { /* Direkter-Nachfahre-Selektor:; Wählt die Elemente aus, die im grid liegen */
+		outline: 0px solid red; /* Hilfsgitter bei 1px*/
+	}
+
+	.grid > .empty { /* falls man leere Zelle braucht */
+		background-color: none; 
+	}
+
+	.size-1 {
+		grid-column-end: span 1; /* Elemnte mit dieser Klasse werden nur eine Zelle einnehmen */
+	}
+
+	.size-2 { 
+		grid-column-end: span 2;
+	}
+
+	.size-3 {
+		grid-column-end: span 3;
+	}
+
+	button {
+		font-size: 18px;
+	}
+
+	.container {
+		box-shadow: 2px 2px 4px #d8d8d8;
+	}
+}
