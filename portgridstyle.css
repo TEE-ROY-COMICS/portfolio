@@ -124,44 +124,38 @@ button {
 	font-size: 40px;
 	padding: 0.4em 0.4em; 
 	font-weight: 700;
-	color: white;
-	background: black;
-	border: none;
+	color: #df005e;
+	background: none;
+	border: 2px solid #df005e;
+	border-radius: 10px;
 }
 
 button:hover {
 	background-color: #df005e;
+	color: white;
 	position: relative;
 }
 
-button:hover:after {
-	content: url(images/clipboard.svg); /* no need for qoutes */
-	display: block;
-	position: absolute;
-	left: 14em; /* change this value to one that suits you */
-	top: 0.5em; /* change this value to one that suits you */
-}
-
 .download {
+	text-decoration: none;
 	padding: 0.4em 0.4em; 
 	font-weight: 700;
-	color: white;
-	background: black;
-	border: none;
-	text-decoration: none;
+	color: #df005e;
+	background: none;
+	border: 2px solid #df005e;
+	border-radius: 10px;
+	margin-right: 1em;
 }
 
 .download:hover {
 	background-color: #df005e;
+	color: white;
 	position: relative;
 }
 
-.download:hover:after {
-	content: url(images/download.svg); /* no need for qoutes */
-	display: block;
-	position: absolute;
-	left: 6em; /* change this value to one that suits you */
-	top: 0.5em; /* change this value to one that suits you */
+.flex{
+	display: flex;
+	flex-direction: row;
 }
 
 #orange h1, #orange h4 {
